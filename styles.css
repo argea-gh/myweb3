@@ -286,13 +286,16 @@ body {
       transform: scale(1.05);
     }
     
-    .page {
-      display: none;
-    }
-    
-    .page.active {
-      display: block;
-    }
+.page {
+  display: none;
+  height: 100vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.page.active {
+  display: block;
+}
 
 @media (max-width: 768px) {
       /* Product card enhancements - 20% larger */

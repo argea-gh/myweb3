@@ -730,7 +730,7 @@
       
       // Show/hide scroll button based on scroll position
       window.addEventListener('scroll', () => {
-        const scrollBtn = document.getElementById('scrollToTop');
+        const scrollBtn = document.getElementById('scrollToTopBtn');
         if (window.pageYOffset > 300) {
           scrollBtn.classList.add('visible');
         } else {
@@ -739,7 +739,7 @@
       });
       
       // Scroll to top when button clicked
-      document.getElementById('scrollToTop').addEventListener('click', () => {
+      document.getElementById('scrollToTopBtn').addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
       

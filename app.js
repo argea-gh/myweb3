@@ -725,23 +725,48 @@
       document.getElementById('checkoutWhatsApp').addEventListener('click', checkoutWhatsApp);
       
       // ============================================
-      // Scroll to Top Button
-      // ============================================
-      
-      // Show/hide scroll button based on scroll position
-      window.addEventListener('scroll', () => {
-        const scrollBtn = document.getElementById('scrollToTopBtn');
-        if (window.pageYOffset > 300) {
-          scrollBtn.classList.add('visible');
-        } else {
-          scrollBtn.classList.remove('visible');
-        }
-      });
-      
-      // Scroll to top when button clicked
-      document.getElementById('scrollToTopBtn').addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
+      // Scroll to Top Button    
+// ============================================
+// SCROLL TO TOP FIX UNTUK WEBSITE SPA ANDA
+// ============================================
+
+function initScrollToTopSPA() {
+  const scrollBtn = document.getElementById("scrollToTopBtn");
+  if (!scrollBtn) return;
+
+  function getActivePage() {
+    return document.querySelector(".page.active");
+  }
+
+  // DETEKSI SCROLL PADA .page.active
+  function updateScrollButton() {
+    const activePage = getActivePage();
+    if (!activePage) return;
+
+    const scrollY = activePage.scrollTop;
+
+    if (scrollY > 300) {
+      scrollBtn.classList.add("visible");
+    } else {
+      scrollBtn.classList.remove("visible");
+    }
+  }
+
+  // Pasang event scroll ke semua .page
+  document.querySelectorAll(".page").forEach(page => {
+    page.addEventListener("scroll", updateScrollButton, { passive: true });
+  });
+
+  // Scroll ke atas halaman aktif
+  scrollBtn.addEventListener("click", () => {
+    const activePage = getActivePage();
+    if (!activePage) return;
+
+    activePage.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
+initScrollToTopSPA();
       
       // ============================================
       // Contact Form Submission

@@ -3,104 +3,137 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Herbaprima — Home</title>
+  <title>Herbaprima — Solusi Herbal Modern untuk Hidup Sehat Alami</title>
+  <meta name="description" content="Herbaprima - Produk herbal premium untuk hidup sehat. Madu, minyak herba, minuman sehat, perawatan kulit.">
+  <meta property="og:title" content="Herbaprima — Solusi Herbal Modern">
+  <meta property="og:description" content="Produk herbal premium untuk hidup sehat alami.">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
+<div id="preloader"><div class="loader"></div></div>
+
 <header class="header">
   <div class="container nav">
     <div class="brand">
-      <img src="https://lh3.googleusercontent.com/d/1xp5ce29F3f-nVa_IEx925L-8YrXXbHo6" alt="logo">
+      <img src="" alt="logo">
       <div class="title">Herbaprima</div>
     </div>
     <nav class="nav-links">
-      <a href="index.html" class="active">Beranda</a>
+      <a href="index.html" class="active">Home</a>
       <a href="produk/index.html">Produk</a>
       <a href="tentang_kami.html">Tentang Kami</a>
       <a href="blog.html">Blog</a>
       <a href="kontak.html">Kontak</a>
+      <a href="testimoni.html">Testimoni</a>
     </nav>
+    <div class="header-right">
+      <button id="darkToggle" class="btn outline">Mode Gelap</button>
+      <button class="cart-btn" onclick="toggleCart()">
+        🛒 <span class="cart-count cart-count">0</span>
+      </button>
+      <button class="hamburger" aria-label="menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+    </div>
   </div>
 </header>
 
 <main>
   <section class="hero">
+    <div class="slides">
+      <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1600&q=60')"></div>
+      <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1506806732259-39c2d0268443?auto=format&fit=crop&w=1600&q=60')"></div>
+      <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1600&q=60')"></div>
+    </div>
     <div class="overlay"></div>
     <div class="content container">
-      <h1>Herbaprima — Solusi Herbal Modern untuk Hidup Sehat</h1>
-      <p>Produk herbal premium berkualitas tinggi dari alam untuk kesehatan optimal Anda dan keluarga.</p>
-      <div style="margin-top:18px">
-        <a href="produk/index.html" class="btn green">Lihat Produk</a>
-        <a href="kontak.html" class="btn outline">Hubungi Kami</a>
+      <h1>Herbaprima — Solusi Herbal Modern untuk Hidup Sehat Alami</h1>
+      <p>Produk herbal premium & alami yang mendukung gaya hidup sehat Anda. Kualitas, keamanan, dan keaslian bahan adalah prioritas kami.</p>
+      <div class="cta">
+        <a class="btn green" href="produk/index.html">Lihat Produk</a>
+        <a class="btn outline" href="kontak.html">Hubungi Kami</a>
       </div>
     </div>
   </section>
 
-  <section style="padding:36px 0" class="container">
-    <h2 style="margin-bottom:12px">Kategori Unggulan</h2>
-    <div class="grid cols-4">
-      <div class="card" onclick="location.href='produk/minuman_sehat/index.html'">
-        <div style="font-size:32px">🧃</div>
-        <h3>MInuman Sehat</h3>
-        <p>Minuman herbal & suplemen</p>
-      </div>
-      <div class="card" onclick="location.href='produk/madu_premium/index.html'">
-        <div style="font-size:32px">🍯</div>
-        <h3>Madu Premium</h3>
-        <p>Madu murni berkualitas</p>
-      </div>
-      <div class="card" onclick="location.href='produk/minyak_herba/index.html'">
-        <div style="font-size:32px">🌿</div>
-        <h3>Minyak Herba</h3>
-        <p>Minyak & essential oil</p>
-      </div>
-      <div class="card" onclick="location.href='produk/aneka_herbal/index.html'">
-        <div style="font-size:32px">🌾</div>
-        <h3>Aneka Herbal</h3>
-        <p>Ramuan tradisional</p>
-      </div>
-    </div>
+  <section class="categories container">
+    <h2>Kategori Unggulan</h2>
+    <div id="categoryGrid" class="category-grid"></div>
   </section>
 
-  <section style="padding:36px 0;background:#fff">
-    <div class="container">
-      <h2 style="margin-bottom:12px">Produk Terbaru</h2>
-      <div id="homeProducts" class="grid cols-4"></div>
+  <section class="products container">
+    <h2>Semua Produk</h2>
+    <div id="productGrid" class="grid cols-6"></div>
+  </section>
+
+  <section class="bestseller container">
+    <h2>Produk Terlaris</h2>
+    <div id="bestsellerGrid" class="grid cols-6"></div>
+  </section>
+
+  <section class="testimonials container">
+    <h2>Apa Kata Mereka?</h2>
+    <div class="test-grid" id="testGrid">
+      <!-- sample testimonials -->
+      <div class="test-card"><div class="test-top"><div class="avatar"><img src="https://randomuser.me/api/portraits/women/68.jpg" style="width:100%"></div><div><strong>Siti</strong><div class="muted">★★★★★</div></div></div><p class="muted">Produk bagus dan cepat sampai!</p></div>
+      <div class="test-card"><div class="test-top"><div class="avatar"><img src="https://randomuser.me/api/portraits/men/45.jpg" style="width:100%"></div><div><strong>Budi</strong><div class="muted">★★★★★</div></div></div><p class="muted">Sehat rasanya, keluarga suka.</p></div>
+      <div class="test-card"><div class="test-top"><div class="avatar"><img src="https://randomuser.me/api/portraits/women/12.jpg" style="width:100%"></div><div><strong>Anna</strong><div class="muted">★★★★☆</div></div></div><p class="muted">Rekomendasi dari teman, tidak kecewa.</p></div>
+      <div class="test-card"><div class="test-top"><div class="avatar"><img src="https://randomuser.me/api/portraits/men/32.jpg" style="width:100%"></div><div><strong>Agus</strong><div class="muted">★★★★★</div></div></div><p class="muted">Kualitas oke, pengemasan rapi.</p></div>
+      <div class="test-card"><div class="test-top"><div class="avatar"><img src="https://randomuser.me/api/portraits/women/22.jpg" style="width:100%"></div><div><strong>Rina</strong><div class="muted">★★★★★</div></div></div><p class="muted">Saya suka produk madu nya!</p></div>
     </div>
   </section>
 </main>
 
-<footer class="footer">
-  <div class="container" style="display:flex;gap:24px;flex-wrap:wrap;justify-content:space-between">
-    <div class="col">
-      <div style="display:flex;align-items:center;gap:10px"><img src="https://lh3.googleusercontent.com/d/1xp5ce29F3f-nVa_IEx925L-8YrXXbHo6" alt="logo" style="width:40px;height:40px"><strong>Herbaprima</strong></div>
-      <p style="margin-top:8px">Solusi herbal modern untuk hidup sehat.</p>
-    </div>
-    <div class="col">
-      <h4>Navigasi</h4>
-      <p><a href="index.html">Home</a><br><a href="produk/index.html">Produk</a></p>
-    </div>
-    <div class="col">
-      <h4>Kontak</h4>
-      <p>WA: +62 822-4190-0467<br>info@herbaprima.com</p>
-    </div>
+<!-- Cart Drawer -->
+<div class="cart-drawer" id="cartDrawer">
+  <h3>Keranjang</h3>
+  <div id="cartList"></div>
+  <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center">
+    <div class="muted">Total</div><div id="cartTotal" style="font-weight:800">Rp 0</div>
   </div>
-</footer>
+  <div style="margin-top:10px;display:flex;gap:8px">
+    <button class="btn outline" onclick="clearCart()">Reset</button>
+    <button class="btn green" onclick="checkoutWhatsApp()">Checkout via WhatsApp</button>
+  </div>
+</div>
 
+<!-- Modal -->
+<div id="productModal" class="modal"><div class="box"></div></div>
+
+<!-- Floating WA & Scroll to top -->
 <a class="fab" href="https://wa.me/6282241900467?text=Halo%20Herbaprima" target="_blank" title="Chat via WhatsApp">WA</a>
 <div class="scrolltop" id="scrollTopBtn" title="Ke atas">↑</div>
 
-<div id="productModal" class="modal" onclick="closeModal()">
-  <div class="box" onclick="event.stopPropagation()"></div>
-</div>
-
-<div style="display:none" id="cartTemplate">
-  <div id="cartList"></div>
-  <div id="cartTotal"></div>
-</div>
+<footer class="footer">
+  <div class="container" style="display:flex;gap:24px;flex-wrap:wrap;justify-content:space-between">
+    <div class="col">
+      <div style="display:flex;align-items:center;gap:10px"><img src="" alt="logo" style="width:40px;height:40px"><strong>Herbaprima</strong></div>
+      <p style="margin-top:8px">Solusi herbal modern untuk hidup sehat.</p>
+    </div>
+    <div class="col">
+      <h4>Kontak</h4>
+      <p>Jalan Sehat 123<br>Jam operasional: Senin - Sabtu 08:00 - 18:00<br>WA: +62 822-4190-0467<br>Email: info@herbaprima.com</p>
+    </div>
+    <div class="col">
+      <h4>Ikuti Kami</h4>
+      <p><a href="#">Instagram</a> • <a href="#">TikTok</a> • <a href="#">Facebook</a></p>
+    </div>
+    <div class="col">
+      <h4>Link Cepat</h4>
+      <p><a href="produk/index.html">Produk</a><br><a href="tentang_kami.html">Tentang Kami</a><br><a href="blog.html">Blog</a></p>
+    </div>
+  </div>
+  <div class="center muted" style="margin-top:12px">© 2025 Herbaprima</div>
+</footer>
 
 <script src="assets/js/app.js"></script>
+<script>
+  // scroll to top
+  const st = document.getElementById('scrollTopBtn');
+  window.addEventListener('scroll', ()=> { if(window.scrollY>300) st.classList.add('visible'); else st.classList.remove('visible'); });
+  st.addEventListener('click', ()=> window.scrollTo({top:0,behavior:'smooth'}));
+  // toggle cart drawer
+  function toggleCart(){ document.getElementById('cartDrawer').classList.toggle('open'); }
+</script>
 </body>
 </html>

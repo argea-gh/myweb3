@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Herbaprima — Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="container nav">
+    <div class="brand">
+      <img src="https://lh3.googleusercontent.com/d/1xp5ce29F3f-nVa_IEx925L-8YrXXbHo6" alt="logo">
+      <div class="title">Herbaprima</div>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html" class="active">Beranda</a>
+      <a href="produk/index.html">Produk</a>
+      <a href="tentang_kami.html">Tentang Kami</a>
+      <a href="blog.html">Blog</a>
+      <a href="kontak.html">Kontak</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="content container">
+      <h1>Herbaprima — Solusi Herbal Modern untuk Hidup Sehat</h1>
+      <p>Produk herbal premium berkualitas tinggi dari alam untuk kesehatan optimal Anda dan keluarga.</p>
+      <div style="margin-top:18px">
+        <a href="produk/index.html" class="btn green">Lihat Produk</a>
+        <a href="kontak.html" class="btn outline">Hubungi Kami</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:36px 0" class="container">
+    <h2 style="margin-bottom:12px">Kategori Unggulan</h2>
+    <div class="grid cols-4">
+      <div class="card" onclick="location.href='produk/minuman_sehat/index.html'">
+        <div style="font-size:32px">🧃</div>
+        <h3>MInuman Sehat</h3>
+        <p>Minuman herbal & suplemen</p>
+      </div>
+      <div class="card" onclick="location.href='produk/madu_premium/index.html'">
+        <div style="font-size:32px">🍯</div>
+        <h3>Madu Premium</h3>
+        <p>Madu murni berkualitas</p>
+      </div>
+      <div class="card" onclick="location.href='produk/minyak_herba/index.html'">
+        <div style="font-size:32px">🌿</div>
+        <h3>Minyak Herba</h3>
+        <p>Minyak & essential oil</p>
+      </div>
+      <div class="card" onclick="location.href='produk/aneka_herbal/index.html'">
+        <div style="font-size:32px">🌾</div>
+        <h3>Aneka Herbal</h3>
+        <p>Ramuan tradisional</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:36px 0;background:#fff">
+    <div class="container">
+      <h2 style="margin-bottom:12px">Produk Terbaru</h2>
+      <div id="homeProducts" class="grid cols-4"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container" style="display:flex;gap:24px;flex-wrap:wrap;justify-content:space-between">
+    <div class="col">
+      <div style="display:flex;align-items:center;gap:10px"><img src="https://lh3.googleusercontent.com/d/1xp5ce29F3f-nVa_IEx925L-8YrXXbHo6" alt="logo" style="width:40px;height:40px"><strong>Herbaprima</strong></div>
+      <p style="margin-top:8px">Solusi herbal modern untuk hidup sehat.</p>
+    </div>
+    <div class="col">
+      <h4>Navigasi</h4>
+      <p><a href="index.html">Home</a><br><a href="produk/index.html">Produk</a></p>
+    </div>
+    <div class="col">
+      <h4>Kontak</h4>
+      <p>WA: +62 822-4190-0467<br>info@herbaprima.com</p>
+    </div>
+  </div>
+</footer>
+
+<a class="fab" href="https://wa.me/6282241900467?text=Halo%20Herbaprima" target="_blank" title="Chat via WhatsApp">WA</a>
+<div class="scrolltop" id="scrollTopBtn" title="Ke atas">↑</div>
+
+<div id="productModal" class="modal" onclick="closeModal()">
+  <div class="box" onclick="event.stopPropagation()"></div>
+</div>
+
+<div style="display:none" id="cartTemplate">
+  <div id="cartList"></div>
+  <div id="cartTotal"></div>
+</div>
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>

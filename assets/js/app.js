@@ -185,7 +185,7 @@
       
       const floatingWA = document.getElementById('floatingWhatsApp');
       const whatsappNum = (config.whatsapp_number || defaultConfig.whatsapp_number).replace(/^0/, '');
-      floatingWA.href = https://wa.me/${whatsappNum}?text=Halo%20${encodeURIComponent(config.brand_name || defaultConfig.brand_name)},%20saya%20ingin%20bertanya%20tentang%20produk%20Anda;
+      floatingWA.href = `https://wa.me/${whatsappNum}?text=Halo%20${encodeURIComponent(config.brand_name || defaultConfig.brand_name)},%20saya%20ingin%20bertanya%20tentang%20produk%20Anda`;
     }
 
     // ============================================
@@ -254,10 +254,10 @@
       selectedProduct = product;
       
       document.getElementById('modalTitle').textContent = product.name;
-      document.getElementById('modalImage').innerHTML = <img src="${product.image}" alt="${product.name}" class="w-full h-full object-contain" onerror="this.src=''; this.style.display='none'; this.parentElement.innerHTML='<span class=\\'text-8xl\\'>${product.icon || '📦'}</span>';">;
+      document.getElementById('modalImage').innerHTML = `<img src="${product.image}" alt="${product.name}" class="w-full h-full object-contain" onerror="this.src=''; this.style.display='none'; this.parentElement.innerHTML='<span class=\\'text-8xl\\'>${product.icon || '📦'}</span>';">`;
       document.getElementById('modalPrice').textContent = formatRupiah(product.price);
       document.getElementById('modalDescription').textContent = product.description;
-      document.getElementById('modalBenefits').innerHTML = product.benefits.map(b => <li>${b}</li>).join('');
+      document.getElementById('modalBenefits').innerHTML = product.benefits.map(b => `<li>${b}</li>`).join('');
       document.getElementById('modalComposition').textContent = product.composition;
       
       if (product.bestseller) {
@@ -444,16 +444,16 @@
       const brandName = config.brand_name || defaultConfig.brand_name;
       
       // Build order message with all cart items
-      let message = Halo ${brandName}, saya ingin memesan:\n\n;
+      let message = `Halo ${brandName}, saya ingin memesan:\n\n`;
       cart.forEach(item => {
-        message += - ${item.name} Qty: ${item.quantity} (${formatRupiah(item.price * item.quantity)})\n;
+        message += `- ${item.name} Qty: ${item.quantity} (${formatRupiah(item.price * item.quantity)})\n`;
       });
       
       const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-      message += \nTotal: ${formatRupiah(total)}\n\nNama:\nAlamat:\nNo HP:;
+      message += `\nTotal: ${formatRupiah(total)}\n\nNama:\nAlamat:\nNo HP:`;
       
       // Open WhatsApp in new tab
-      const url = https://wa.me/${whatsappNum}?text=${encodeURIComponent(message)};
+      const url = `https://wa.me/${whatsappNum}?text=${encodeURIComponent(message)}`;
       window.open(url, '_blank', 'noopener,noreferrer');
     }
 
@@ -468,9 +468,9 @@
       const whatsappNum = (config.whatsapp_number || defaultConfig.whatsapp_number).replace(/^0/, '');
       const brandName = config.brand_name || defaultConfig.brand_name;
       
-      const message = Halo ${brandName}, saya ingin memesan:\n\n- ${selectedProduct.name} Qty: 1 (${formatRupiah(selectedProduct.price)})\n\nNama:\nAlamat:\nNo HP:;
+      const message = `Halo ${brandName}, saya ingin memesan:\n\n- ${selectedProduct.name} Qty: 1 (${formatRupiah(selectedProduct.price)})\n\nNama:\nAlamat:\nNo HP:`;
       
-      const url = https://wa.me/${whatsappNum}?text=${encodeURIComponent(message)};
+      const url = `https://wa.me/${whatsappNum}?text=${encodeURIComponent(message)}`;
       window.open(url, '_blank', 'noopener,noreferrer');
     }
 
@@ -557,7 +557,7 @@
       }
       
       // Set active state on clicked nav link
-      document.querySelectorAll(.nav-link[data-page="${pageName}"]).forEach(link => {
+      document.querySelectorAll(`.nav-link[data-page="${pageName}"]`).forEach(link => {
         link.classList.add('active');
       });
     }
@@ -723,53 +723,24 @@
       document.getElementById('checkoutWhatsApp').addEventListener('click', checkoutWhatsApp);
       
       // ============================================
-      // Scroll to Top Button (FIXED)
+      // Scroll to Top Button
       // ============================================
-        // Show/hide scroll button based on scroll position
-// ============================================
-// SCROLL TO TOP FIX UNTUK WEBSITE SPA ANDA
-// ============================================
-
-function initScrollToTopSPA() {
-  const scrollBtn = document.getElementById("scrollToTopBtn");
-  if (!scrollBtn) return;
-
-  function getActivePage() {
-    return document.querySelector(".page.active");
-  }
-
-  // DETEKSI SCROLL PADA .page.active
-  function updateScrollButton() {
-    const activePage = getActivePage();
-    if (!activePage) return;
-
-    const scrollY = activePage.scrollTop;
-
-    if (scrollY > 300) {
-      scrollBtn.classList.add("visible");
-    } else {
-      scrollBtn.classList.remove("visible");
-    }
-  }
-
-  // Pasang event scroll ke semua .page
-  document.querySelectorAll(".page").forEach(page => {
-    page.addEventListener("scroll", updateScrollButton, { passive: true });
-  });
-
-  // Scroll ke atas halaman aktif
-  scrollBtn.addEventListener("click", () => {
-    const activePage = getActivePage();
-    if (!activePage) return;
-
-    activePage.scrollTo({ top: 0, behavior: "smooth" });
-  });
-}
-
-initScrollToTopSPA();
-
-
-    
+      
+      // Show/hide scroll button based on scroll position
+      window.addEventListener('scroll', () => {
+        const scrollBtn = document.getElementById('scrollToTop');
+        if (window.pageYOffset > 300) {
+          scrollBtn.classList.add('visible');
+        } else {
+          scrollBtn.classList.remove('visible');
+        }
+      });
+      
+      // Scroll to top when button clicked
+      document.getElementById('scrollToTop').addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      
       // ============================================
       // Contact Form Submission
       // ============================================
@@ -782,8 +753,8 @@ initScrollToTopSPA();
         const message = document.getElementById('contactMessage').value;
         
         // Build WhatsApp message and open in new tab
-        const text = Halo, saya ${name}\nEmail: ${email}\n\nPesan: ${message};
-        const url = https://wa.me/${whatsappNum}?text=${encodeURIComponent(text)};
+        const text = `Halo, saya ${name}\nEmail: ${email}\n\nPesan: ${message}`;
+        const url = `https://wa.me/${whatsappNum}?text=${encodeURIComponent(text)}`;
         window.open(url, '_blank', 'noopener,noreferrer');
         
         e.target.reset();

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Herbaprima — Produk</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50">
+  <!-- same header -->
+  <header class="site-header">
+    <nav class="container nav">
+      <div class="brand">
+        <img id="logoImage2" src="https://lh3.googleusercontent.com/d/1xp5ce29F3f-nVa_IEx925L-8YrXXbHo6" alt="Herbaprima Logo" class="logo">
+        <span class="brand-name">Herbaprima</span>
+      </div>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="produk.html" class="nav-link active">Produk</a>
+        <a href="kontak.html" class="nav-link">Kontak</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page-content container">
+    <section class="py-12">
+      <h1 class="page-title">Produk Pilihan Kami</h1>
+      <p class="lead">Dipilih dengan hati-hati untuk kesehatan Anda</p>
+
+      <!-- product grid will be filled by app.js -->
+      <div id="productGrid" class="grid products-grid"></div>
+    </section>
+  </main>
+
+  <!-- footer same as index -->
+  <footer class="site-footer">
+    <div class="container">...footer content same as index...</div>
+  </footer>
+
+  <!-- FAB stack -->
+  <div class="fab-stack">
+    <button id="scrollToTopBtn" class="scroll-to-top" aria-label="Ke atas">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 15l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <a class="whatsapp-float" href="https://wa.me/6282241900467" target="_blank" aria-label="WhatsApp">
+      <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 .6C7.5.6.6 7.5.6 16c0 2.8.7 5.6 2.1 8.1L0 32l8.2-2.6c2.4 1.3 5.1 2 7.8 2 8.5 0 15.4-6.9 15.4-15.4S24.5.6 16 .6zM23 20.5c-.3.9-1.1 1.7-2 2.1-.9.4-1.7.6-2.6.6-.9 0-1.6-.2-2.3-.6-1.4-.7-3-2.3-4-4-1-1.7-1.6-3.7-1.6-5.8 0-1 .3-1.9.8-2.8.5-.9 1.2-1.7 2.1-2.3 1.1-.7 2.4-1 3.6-1 1 0 1.9.2 2.8.6.9.4 1.6 1 2.2 1.8.6.8 1 1.7 1.1 2.7.1 1-.1 2-.7 2.9-.5.9-1.3 1.7-2.2 2.2z"/></svg>
+    </a>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

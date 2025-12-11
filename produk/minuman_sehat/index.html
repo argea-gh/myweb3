@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Minuman Sehat — Herbaprima</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="container nav">
+    <div class="brand">
+      <img src="https://lh3.googleusercontent.com/d/1xp5ce29F3f-nVa_IEx925L-8YrXXbHo6">
+      <div class="title">Herbaprima</div>
+    </div>
+    <nav class="nav-links">
+      <a href="../../index.html">Beranda</a>
+      <a href="../index.html">Produk</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container" style="padding:36px 0">
+  <h1 id="categoryTitle">Minuman Sehat</h1>
+  <div id="categoryGrid" class="grid cols-4"></div>
+</main>
+
+<div id="productModal" class="modal"><div class="box"></div></div>
+
+<script src="../../assets/js/app.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", ()=>{ renderCategory("Minuman Sehat"); });
+</script>
+
+</body>
+</html>
